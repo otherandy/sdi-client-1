@@ -20,7 +20,7 @@ export default function ContentList() {
   });
 
   return (
-    <div>
+    <div className="content">
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {content.map((item: any) => (
         <div key={item._id}>
