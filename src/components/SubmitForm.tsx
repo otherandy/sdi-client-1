@@ -28,9 +28,11 @@ export default function Submit() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Title" />
-      <textarea placeholder="Content" />
-      <button type="submit">Submit</button>
+      <input type="text" id="title" placeholder="Title" />
+      <textarea id="content" placeholder="Content" />
+      <button type="submit" className="submit">
+        Submit
+      </button>
     </form>
   );
 }
