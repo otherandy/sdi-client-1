@@ -23,6 +23,8 @@ export default function Submit() {
     const title = form.querySelector("input") as HTMLInputElement;
     const description = form.querySelector("textarea") as HTMLTextAreaElement;
 
+    setLoading(true);
+
     const ipResponse = await fetch("https://api.ipify.org?format=json");
     const ipData = await ipResponse.json();
 
@@ -48,7 +50,6 @@ export default function Submit() {
     };
 
     try {
-      setLoading(true);
       await fetch(`${serverUrl}/content`, {
         method: "POST",
         headers: {
