@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:4000";
 
+interface Content {
+  _id: string;
+  title: string;
+  description: string;
+  temperature: number;
+}
+
 export default function ContentList() {
   const [content, setContent] = useState([]);
 
@@ -30,12 +37,17 @@ export default function ContentList() {
 
   return (
     <div className="content">
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      {content.map((item: any, index) => (
+      {content.map((item: Content, index) => (
         <div key={item._id}>
-          <small>{index + 1}</small>
+          <small className="index">{index + 1}</small>
           <h2>{item.title}</h2>
           <p>{item.description}</p>
+          {item.temperature ? (
+            <p>
+              {item.temperature}
+              <small>&nbsp;°C</small>
+            </p>
+          ) : null}
           <a
             title="Delete"
             className="delete"

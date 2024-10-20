@@ -67,7 +67,7 @@ h1 {
   opacity: 0.5;
 }
 
-.content small {
+.content .index {
   color: #666;
   position: absolute;
   top: 0;
