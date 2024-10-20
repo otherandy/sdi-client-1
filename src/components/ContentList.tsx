@@ -37,8 +37,14 @@ export default function ContentList() {
 
   return (
     <div className="content">
+      {content.length === 0 && (
+        <div>
+          <p>No content available</p>
+          <p>Please try refreshing the page</p>
+        </div>
+      )}
       {content.map((item: Content, index) => (
-        <div key={item._id}>
+        <div key={item._id} className="box">
           <small className="index">{index + 1}</small>
           <h2>{item.title}</h2>
           <p>{item.description}</p>

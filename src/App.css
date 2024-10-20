@@ -44,14 +44,14 @@ h1 {
   gap: 1rem;
 }
 
-.content > div {
+.content .box {
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   position: relative;
 }
 
-.content .delete {
+.content .box .delete {
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -63,11 +63,11 @@ h1 {
   align-items: center;
 }
 
-.content .delete:hover {
+.content .box .delete:hover {
   opacity: 0.5;
 }
 
-.content .index {
+.content .box .index {
   color: #666;
   position: absolute;
   top: 0;
