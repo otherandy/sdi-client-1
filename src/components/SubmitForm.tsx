@@ -1,9 +1,5 @@
 const serverUrl = import.meta.env.VITE_SERVER_URL || "http://localhost:4000";
 
-interface IpData {
-  ip: string;
-}
-
 interface LocationData {
   lat: number;
   lon: number;
@@ -24,9 +20,15 @@ export default function Submit() {
     const description = form.querySelector("textarea") as HTMLTextAreaElement;
 
     const ipResponse = await fetch("https://api.ipify.org?format=json");
-    const { ip } = (await ipResponse.json()) as IpData;
+    const ipData = await ipResponse.json();
 
-    const locationResponse = await fetch(`https://ip-api.com/json/${ip}`);
+    const locationResponse = await fetch(serverUrl + "/location", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ipData),
+    });
     const { lat, lon } = (await locationResponse.json()) as LocationData;
 
     const weather = await fetch(

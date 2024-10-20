@@ -14,7 +14,7 @@ export default function ContentList() {
 
   const fetchContent = async () => {
     try {
-      const res = await fetch(`${serverUrl}/content`);
+      const res = await fetch(serverUrl + "/content");
       const data = await res.json();
       setContent(data);
     } catch (error) {
