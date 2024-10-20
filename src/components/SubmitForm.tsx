@@ -26,7 +26,7 @@ export default function Submit() {
     const ipResponse = await fetch("https://api.ipify.org?format=json");
     const { ip } = (await ipResponse.json()) as IpData;
 
-    const locationResponse = await fetch(`http://ip-api.com/json/${ip}`);
+    const locationResponse = await fetch(`https://ip-api.com/json/${ip}`);
     const { lat, lon } = (await locationResponse.json()) as LocationData;
 
     const weather = await fetch(
